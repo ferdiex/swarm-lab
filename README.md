@@ -18,6 +18,10 @@ will get it with `git pull`.
 
 ## Install
 
+No installation possible? Use the Google Colab notebook (no live view; your
+team folder is kept in Google Drive):
+[open swarm-lab in Colab](https://colab.research.google.com/github/ferdiex/swarm-lab/blob/main/colab/swarm_lab.ipynb).
+
 With conda (Windows, macOS and Linux; no compiler needed):
 
 ```bash
