@@ -4,6 +4,8 @@ Teams of simulated e-puck robots race to their own food. Final project of
 the AI course (agents, Russell and Norvig): each team writes the agent of
 its robots, fixes a jam, trains its parameters and plays a tournament.
 
+![The arena in the middle of a race: blue robots go to the gray U on the left, orange robots to the black U on the right; beacons glow green, relays wear a red ring](docs/arena.png)
+
 The robots are PyBullet twins of the real e-puck 1, calibrated with
 [epuck-remote](https://github.com/ferdiex/epuck-remote): motion, infrared
 and ground sensors, control timing and loudness against distance.
@@ -75,6 +77,10 @@ from its U as its twin of the other team.
   (off, green, red) and whether the robot sounds. The base agent comes in
   layers (subsumption) with four sections to complete (`# >>> COMPLETE n` ...
   `# <<< COMPLETE n`).
+
+![Subsumption layers of the base agent: 5 food, 4 relay, 3 light, 2 sound, 1 wall, 0 explore; a higher layer that acts suppresses the layers below](docs/subsumption.png)
+
+`swarm man layers` explains when each layer acts and what it does.
 
 Percepts, the only information an agent gets:
 
