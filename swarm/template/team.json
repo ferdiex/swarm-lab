@@ -1,0 +1,43 @@
+// team.json - everything you can change without programming.
+// Every parameter is explained in the manual: swarm man <name>   (e.g. swarm man park_time)
+// Lines starting with // are comments.
+{
+  // Two roles: a BEACON is on its food (green body LED, sound); a RELAY stopped
+  // outside the food, blocked next to a light (red LED ring, silent).
+  // There is no team color: the match gives hats, blue at home (left U) and
+  // orange away (right U). Your agent reads its own in percepts["hat"].
+  "signals": {
+    "light_on_food": true,     // a beacon lights its green body LED
+    "sound_on_food": true,     // a beacon sounds (shared: the rival hears it too)
+    "follow_light": true,      // layer 3: go towards lit LEDs
+    "follow_sound": true,      // layer 2: follow the loudness
+    "relays": true,            // blocked next to a light: stop and be a relay (red ring)
+    "join_relays": true,       // become a relay next to a relay too (not only a beacon)
+    "join_dist": 0.13,         // m: this close to a relay, stop next to it
+    "park_time": 1.5,          // s blocked next to a light before becoming a relay
+    "relay_timeout": 0,        // s as a relay before giving up (0: never)
+    "unstick_ignore": 8,       // s ignoring signals after giving up
+    "make_room": false         // a beacon moves deeper into the U when someone is behind
+  },
+
+  "behavior": {
+    "speed": 1.0,              // cruise speed, fraction of the maximum
+    "wall_follow": 0.3,        // probability of following a touched wall
+    "wander_min": 2,           // s between random turns (shortest)
+    "wander_max": 6,           // s between random turns (longest)
+    "stuck_time": 1.5,         // s against an obstacle before backing up
+    "light_gain": 1.5,         // how hard to steer towards a light
+    "light_avoid": 0.35,       // near a light, how much to avoid neighbors (0..1)
+    "sound_local": 1.15        // follow the sound when this many times louder than usual
+  },
+
+  // Practice runs (swarm run, swarm eval). The tournament uses 15 robots,
+  // a 2 m arena and 300 s, whatever you put here.
+  "experiment": {
+    "robots": 10,
+    "arena": 1.5,
+    "duration": 150,
+    "seeds": "1-10",
+    "rival": "none"            // none (alone), sparring (the red team that comes with swarm-lab) or a team folder
+  }
+}

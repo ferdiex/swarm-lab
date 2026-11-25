@@ -1,0 +1,10 @@
+# conda env create -f environment.yml && conda activate swarm-lab && pip install -e .
+name: swarm-lab
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - pybullet
+  - numpy
+  - matplotlib
+  - pip

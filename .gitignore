@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+.venv/
+
+# outputs
+results/
+runs/
+*.mp4
+
+# system
+.DS_Store
+Thumbs.db
