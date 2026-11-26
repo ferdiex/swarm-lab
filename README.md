@@ -12,11 +12,13 @@ and ground sensors, control timing and loudness against distance.
 
 ## Status
 
-Published: the simulator, `check`, `run`, `eval`, `man`, the team template
-and the jam to fix. Still being debugged: **phase 1c, training with a
-learning algorithm** (`swarm optimize` with local search or evolution, and
-your own `fitness.py`). It will be published as soon as it is finished; you
-will get it with `git pull`.
+**Part 1 (published):** the simulator, `check`, `run`, `eval`, `man`, the
+team template, the jam to fix and the COMPLETE sections of `agent.py`.
+
+**Part 2 (in preparation, second week of December or sooner):** training
+with a learning algorithm (`swarm optimize` with local search or evolution,
+and your own `fitness.py`) and the improvement route. You will get it with
+`git pull`.
 
 ## Install
 
