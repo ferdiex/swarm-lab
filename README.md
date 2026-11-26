@@ -37,6 +37,38 @@ swarm check
 
 Updates during the course: `git pull` inside the `swarm-lab` folder.
 
+### Windows
+
+- Type the commands in the **Anaconda Prompt** (or **Miniforge Prompt**),
+  not in PowerShell: Windows PowerShell does not accept `&&`, and conda may
+  not be set up there. Type the commands one at a time.
+- No `git`? Install it with conda, no installer or administrator rights
+  needed: `conda install -c conda-forge git`
+- Laptops: plug in the charger and switch to the High performance power plan
+  before measuring; on battery saving a run can take twice as long:
+
+  ```
+  powercfg /setactive SCHEME_MIN
+  ```
+
+  When you finish, go back to the Balanced plan:
+
+  ```
+  powercfg /setactive SCHEME_BALANCED
+  ```
+
+  `powercfg /getactivescheme` shows the plan in use. The same setting is in
+  Control Panel, Power Options.
+
+### Slow computer?
+
+- `swarm eval --jobs N` runs N seeds at a time: use the number of physical
+  cores (4 on most laptops). More than that gains little.
+- The live view is the slowest part: press `+` a few times (x4 or x8) to
+  draw fewer frames. To see only the end of a run, use `--snapshot`.
+- Do not open `--live` while an `eval` is using every core.
+- Still too slow? Measure in the Colab notebook (link above).
+
 ## Commands
 
 | command | what for |
@@ -46,7 +78,7 @@ Updates during the course: `git pull` inside the `swarm-lab` folder.
 | `swarm man [name]` | manual of every parameter; topics: `layers`, `signals`, `jam`, `percepts`, `action`, `memory` |
 | `swarm run my_team --live` | one run in a live 2D window (space: pause, + and -: speed, q: quit) |
 | `swarm run my_team --snapshot end.png` | one run without a window, picture of the end |
-| `swarm eval my_team --seeds 1-10 --jobs 2` | several seeds: `runs.csv`, `robots.csv`, `summary.json`, `eval.png` |
+| `swarm eval my_team --seeds 1-10 --jobs 4` | several seeds: `runs.csv`, `robots.csv`, `summary.json`, `eval.png` |
 
 The team's name is the name of its folder (`my_team` in these examples):
 up to 10 letters, digits or `_`. It appears in the view and in the
@@ -55,7 +87,7 @@ tournament; to rename a team, rename its folder.
 `run` and `eval` take the settings of the `experiment` section of
 `team.json`; `--rival none|sparring|FOLDER`, `--robots`, `--arena`,
 `--duration`, `--seeds` and `--swap` override them. `--jobs` runs that
-many seeds at a time (one per core).
+many seeds at a time (one per physical core).
 
 ## The arena
 
